@@ -1,0 +1,30 @@
+{
+  "best_C": 0.003,
+  "best_xgb_params": {
+    "max_depth": 2,
+    "learning_rate": 0.02,
+    "n_estimators": 200,
+    "min_child_weight": 10,
+    "reg_lambda": 1.0
+  },
+  "validation_log_loss": {
+    "Logistic regression": 0.9897033649376505,
+    "XGBoost": 0.9912113547325134,
+    "Ensemble (LR + XGB)": 0.9886710083134818
+  },
+  "chosen_model": "Ensemble (LR + XGB)",
+  "n_test_matches": 1140,
+  "draws_predicted_pct": 0.0,
+  "draw_actual_pct": 24.47368421052632,
+  "class_recall": {
+    "Home win": 0.8333333333333334,
+    "Draw": 0.0,
+    "Away win": 0.5149051490514905
+  },
+  "train_seasons": "2001-02 .. (season-1) walk-forward",
+  "test_seasons": [
+    "2324",
+    "2425",
+    "2526"
+  ]
+}

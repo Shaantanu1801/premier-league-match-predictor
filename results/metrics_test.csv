@@ -1,0 +1,8 @@
+model,log_loss,brier,accuracy,ece
+Class prior,1.0745,0.6507,0.4316,0.0191
+Always home win,1.4051,0.8558,0.4316,0.2456
+Elo only (LR),0.9851,0.588,0.5272,0.0234
+Logistic regression,0.9797,0.5842,0.5307,0.0211
+XGBoost,0.9898,0.5899,0.5254,0.0287
+XGBoost + calibration,0.9832,0.5857,0.5307,0.0223
+Ensemble (LR + XGB),0.9835,0.5861,0.5263,0.0239
