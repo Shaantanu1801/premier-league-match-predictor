@@ -1,0 +1,6 @@
+source,n,log_loss,brier,accuracy,model_log_loss_same_rows,overround_pct
+Model (ensemble),1140,0.9835,0.5861,0.5263,,
+Market average closing,1140,0.9597,0.5699,0.55,0.9835,4.6119
+Bet365 closing,1140,0.9602,0.57,0.55,0.9835,5.5122
+Market average,1140,0.965,0.574,0.5421,0.9835,4.8136
+Bet365,1140,0.9662,0.5744,0.5421,0.9835,5.4816

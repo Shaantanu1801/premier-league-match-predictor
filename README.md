@@ -25,7 +25,7 @@ Predicts **home win / draw / away win probabilities** for Premier League matches
   are hard to beat. The ensemble was selected on validation seasons only, not on the test set.
 - Draws are essentially unpredictable: the model never makes a draw its top pick (recall 0%), though its draw
   probabilities (~20–29%) are reasonable. See `results/figures/draw_probability.png`.
-- **No bookmaker comparison.** Odds data was not available in the build environment. Bookmakers typically reach
+- - **Bookmaker benchmark.** On the same 1,140 test matches (margin removed, market-average odds), the model's log loss is 0.9835, against 0.9650 for opening odds and 0.9597 for closing odds. The gap to closing odds is 0.024 (95% CI 0.015–0.033), so the market is meaningfully better, and blending the model with the odds adds nothing. The model closes about 80% of the gap between base rates and the closing odds, using only public match results. Run `python src/fetch_odds.py` then `python src/odds_benchmark.py` to reproduce it.
   log loss of roughly 0.95–0.97 on the PL, so expect them to be better than this model. To add the benchmark,
   download odds from football-data.co.uk, join on date and teams, and compare log loss on the same matches.
 
@@ -79,9 +79,7 @@ If the download is blocked, save https://www.football-data.co.uk/mmz4281/2627/E0
   weekly GitHub Actions retrain.
 
 ## Résumé bullet
-*Built a leakage-tested, walk-forward-validated Premier League outcome model (25 seasons, Elo + rolling-form
-features, logistic regression/XGBoost ensemble) that improved log loss by about 8.5% over base rates (1.075 → 0.983)
-on three held-out seasons, with calibrated probabilities and a CLI for scoring fixtures.*
+*Built a leakage-tested, walk-forward-validated Premier League match outcome model (25 seasons, Elo + rolling-form features, logistic regression/XGBoost ensemble) that closes about 80% of the gap between base rates and bookmaker closing odds (log loss 0.984 vs 0.960, base rate 1.075), with calibrated probabilities and a Streamlit app.*
 
 ## Deploy (free)
 Push the repo to GitHub, then on share.streamlit.io choose `app/streamlit_app.py`. Keep `models/`, `data/raw/` and `results/`

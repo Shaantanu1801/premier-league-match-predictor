@@ -166,7 +166,7 @@ def main():
     # ---- save test predictions
     out = te[["Date", "season", "HomeTeam", "AwayTeam", "FTR"]].copy()
     best = preds[chosen]
-    out[["p_home", "p_draw", "p_away"]] = best.round(4)
+    out[["p_home", "p_draw", "p_away"]] = best.round(6)
     out["pred"] = np.array(["H", "D", "A"])[best.argmax(1)]
     out.to_csv("results/test_predictions.csv", index=False)
 

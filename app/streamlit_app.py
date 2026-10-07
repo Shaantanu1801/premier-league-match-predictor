@@ -134,6 +134,13 @@ with tab5:
         "- Log loss / Brier: lower is better. ECE: calibration error, lower is better.\n"
         "- Gains over a plain Elo model are small; XGBoost did not beat logistic regression.\n"
         "- The model never makes a draw its top pick; no bookmaker benchmark is included.")
+    if os.path.exists("results/odds_benchmark.csv"):
+        st.subheader("Model vs bookmaker odds (same matches)")
+        st.dataframe(pd.read_csv("results/odds_benchmark.csv"), width="stretch")
+        if os.path.exists("results/figures/odds_benchmark.png"):
+            st.image("results/figures/odds_benchmark.png")
+        st.caption("Bookmaker probabilities are inverse odds with the margin removed. Closing odds include "
+                   "late team news that this model does not see.")
     cols = st.columns(2)
     for i, f in enumerate(["calibration", "model_comparison", "confusion_matrix", "feature_importance"]):
         path = f"results/figures/{f}.png"
